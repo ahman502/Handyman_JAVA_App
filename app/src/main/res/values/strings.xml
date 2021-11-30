@@ -3,4 +3,13 @@
     <string name="submit_sign_in">Sign In</string>
     <string name="new_user_register_here">Sign up</string>
     <string name="forgot_password_click_here">Forgot Password? Click here</string>
+    <string name="name_error">Please enter a name</string>
+    <string name="email_error">Please enter an email address</string>
+    <string name="error_invalid_email">Email is not valid</string>
+    <string name="password_error">Please enter a password</string>
+    <string name="error_invalid_password">Please must be at least 6 characters long</string>
+    <string-array name="categories">
+        <item>Client</item>
+        <item>Handyman</item>
+    </string-array>
 </resources>
