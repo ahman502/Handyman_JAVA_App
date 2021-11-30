@@ -7,7 +7,9 @@
     <string name="email_error">Please enter an email address</string>
     <string name="error_invalid_email">Email is not valid</string>
     <string name="password_error">Please enter a password</string>
-    <string name="error_invalid_password">Please must be at least 6 characters long</string>
+    <string name="error_invalid_password">Password must be at least 8 characters long with uppercase, lowercase, special characters and digits</string>
+    <string name="confirm_password">Please re-enter password to confirm registration</string>
+    <string name="passwords_dont_match">Passwords do not match. Try again</string>
     <string-array name="categories">
         <item>Client</item>
         <item>Handyman</item>
