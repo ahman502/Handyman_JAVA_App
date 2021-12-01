@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Handyman_JAVA_App">
         <activity
+            android:name=".Handyman_home"
+            android:exported="true" />
+        <activity
+            android:name=".Client_home"
+            android:exported="true" />
+        <activity
             android:name=".Register"
             android:exported="true" />
         <activity

@@ -10,8 +10,8 @@
     <string name="error_invalid_password">Password must be at least 8 characters long with uppercase, lowercase, special characters and digits</string>
     <string name="confirm_password">Please re-enter password to confirm registration</string>
     <string name="passwords_dont_match">Passwords do not match. Try again</string>
-    <string-array name="categories">
+    <!-- <string-array name="categories">
         <item>Client</item>
         <item>Handyman</item>
-    </string-array>
+    </string-array> -->
 </resources>

@@ -3,8 +3,11 @@ package com.codecademy.handyman_java_app;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Patterns;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -21,6 +24,10 @@ public class Register extends AppCompatActivity {
     boolean isFirstValid, isLastValid, isEmailValid, isPasswordValid, isConfirmPasswordValid;
     Button submit_btn, sign_up_btn;
     Spinner spinner;
+    int positionInt;
+
+    //creating an array of strings for the dropdown menu
+    String[] categories = {"Select an option", "Client", "Handyman"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,17 +43,66 @@ public class Register extends AppCompatActivity {
         sign_up_btn = findViewById(R.id.sign_up_btn);
         submit_btn = findViewById(R.id.submit_btn);
 
-        //setting on click listeners on the buttons (sign in and sign up) of registration screen
-        sign_up_btn.setOnClickListener(v -> SetValidation());               //sign up button to take to registration form
-        submit_btn.setOnClickListener(v -> openNewActivity());              //sign in button to sign into the application
+        //setting on click listeners on the button
+        submit_btn.setOnClickListener(v -> openNewActivity());        //sign in button to sign into the application
 
         //declaring a spinner
         spinner = findViewById(R.id.spinner);
-        /*adapter for spinner that uses items in the strings.xml file to fill the spinner (drop down menu on registration page)
+
+        /* adapter for spinner that uses items in the strings.xml file to fill the spinner (drop down menu on registration page)
         and uses spinner_item.xml resource file for the layout (styling) of the spinner */
-        ArrayAdapter adapter = ArrayAdapter.createFromResource(this, R.array.categories, R.layout.spinner_item);
+        ArrayAdapter adapter = new ArrayAdapter(this, R.layout.spinner_item, categories);
+
         spinner.setAdapter(adapter);
 
+        // adding a listener to the spinner items
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
+            @Override
+            //function for a selected item from the spinner
+            public void onItemSelected(AdapterView<?> arg0, View arg1, int position, long id) {
+                String positionOfSelectedDataFromSpinner = String.valueOf(position);
+                //turning the string values of the spinner items into integers
+                positionInt = Integer.valueOf(positionOfSelectedDataFromSpinner);
+
+                //if the integer value is 1 (Client) from the dropdown menu, then I display client's home screen after validating all the data fields on the screen
+                if (positionInt == 1) {
+                    sign_up_btn.setOnClickListener(v -> SetValidation());
+                    sign_up_btn.setOnClickListener(v -> openClientHome());
+                }
+                //if the integer value is 2 (Handyman) from the dropdown menu, then I display handyman's home screen after validating all the data fields on the screen
+                else if (positionInt == 2) {
+                    sign_up_btn.setOnClickListener(v -> SetValidation());
+                    sign_up_btn.setOnClickListener(v -> openHandymanHome());
+                }
+                //if the integer value is 0, then I show a validate all the data fields but show a message asking to select an option
+                else if (positionInt == 0) {
+                    sign_up_btn.setOnClickListener(v -> SetValidation());
+                    Toast.makeText(getApplicationContext(), "Please select a drop down option", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            //function for if nothing is selected from the spinner, nothing is to be done then
+            public void onNothingSelected(AdapterView<?> arg0) {
+
+            }
+        });
+
+    }
+
+    // function to display client home screen
+    public void openClientHome() {
+        Intent intent1 = new Intent(this, Client_home.class);
+        //intent1.putExtra("position", positionInt);
+        startActivity(intent1);
+    }
+
+    // function to display handyman home screen
+    public void openHandymanHome() {
+        Intent intent2 = new Intent(this, Handyman_home.class);
+        //intent2.putExtra("position", positionInt);
+        startActivity(intent2);
     }
 
     //function to open and display a new activity
@@ -135,10 +191,9 @@ public class Register extends AppCompatActivity {
         }
 
         // if all the fields are true then we can go ahead and register
-        if (isFirstValid && isLastValid && isEmailValid && isPasswordValid && isConfirmPasswordValid) {
-            Toast.makeText(getApplicationContext(), "Sign up successful", Toast.LENGTH_SHORT).show();
-        }
+        if (isFirstValid && isLastValid && isEmailValid && isPasswordValid && isConfirmPasswordValid && positionInt != 0) {
 
+        }
     }
 
     //function to check if the entered password is valid using Java Regex. Takes in a password as the argument
@@ -159,4 +214,6 @@ public class Register extends AppCompatActivity {
         return matcher.matches();
 
     }
+
+
 }
