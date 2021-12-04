@@ -1,14 +1,23 @@
 package com.codecademy.handyman_java_app;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Patterns;
+import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -18,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
     EditText email_input, password_input;
     Button submit_btn, sign_up_btn, forgot_password;
     boolean isEmailValid, isPasswordValid;
-
+    FirebaseAuth fAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,10 +39,43 @@ public class MainActivity extends AppCompatActivity {
         submit_btn = findViewById(R.id.submit_btn);
         sign_up_btn = findViewById(R.id.sign_up_btn);
         forgot_password = findViewById(R.id.forgot_password);
+        fAuth = FirebaseAuth.getInstance();
 
         //setting on click listeners on the buttons (sign in and sign up) of registration screen
         submit_btn.setOnClickListener(v -> SetValidation());                      //sign in button to sign into the application
         sign_up_btn.setOnClickListener(v -> openNewActivity());                   //sign up button to take to registration form
+
+        fAuth = FirebaseAuth.getInstance();
+
+        sign_up_btn.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view) {
+                String sEmail = email_input.getText().toString().trim();
+                String sPassword = password_input.getText().toString().trim();
+
+                if(TextUtils.isEmpty(sEmail)){
+                    email_input.setError("Email Required");
+                    return;
+                }
+                if(TextUtils.isEmpty(sPassword)){
+                    password_input.setError("Password Required");
+                    return;
+                }
+                //reg user
+                fAuth.createUserWithEmailAndPassword(sEmail,sPassword).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if(task.isSuccessful()){
+                            startActivity(new Intent(getApplicationContext(),Register.class));
+                        }else{
+
+                        }
+                    }
+                });
+            }
+        });
+
     }
 
     //function to open and display a new activity

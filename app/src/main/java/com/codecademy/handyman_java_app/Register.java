@@ -1,5 +1,6 @@
 package com.codecademy.handyman_java_app;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -14,6 +15,11 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -25,6 +31,8 @@ public class Register extends AppCompatActivity {
     Button submit_btn, sign_up_btn;
     Spinner spinner;
     int positionInt;
+    FirebaseAuth fAuth;
+
 
     //creating an array of strings for the dropdown menu
     String[] categories = {"Select an option", "Client", "Handyman"};
@@ -43,6 +51,9 @@ public class Register extends AppCompatActivity {
         sign_up_btn = findViewById(R.id.sign_up_btn);
         submit_btn = findViewById(R.id.submit_btn);
 
+
+
+
         //setting on click listeners on the button
         submit_btn.setOnClickListener(v -> openNewActivity());        //sign in button to sign into the application
 
@@ -54,6 +65,8 @@ public class Register extends AppCompatActivity {
         ArrayAdapter adapter = new ArrayAdapter(this, R.layout.spinner_item, categories);
 
         spinner.setAdapter(adapter);
+
+
 
         // adding a listener to the spinner items
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -214,6 +227,5 @@ public class Register extends AppCompatActivity {
         return matcher.matches();
 
     }
-
 
 }
