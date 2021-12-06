@@ -3,6 +3,7 @@ package com.codecademy.handyman_java_app;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
@@ -12,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -64,19 +66,19 @@ public class Register extends AppCompatActivity {
                 positionInt = Integer.valueOf(positionOfSelectedDataFromSpinner);
 
                 //if the integer value is 1 (Client) from the dropdown menu, then I display client's home screen after validating all the data fields on the screen
-                if (positionInt == 1 && isFirstValid && isLastValid && isEmailValid && isPasswordValid && isConfirmPasswordValid) {
+                if (positionInt == 1) {
                     sign_up_btn.setOnClickListener(v -> SetValidation());
                     sign_up_btn.setOnClickListener(v -> openClientHome());
                 }
                 //if the integer value is 2 (Handyman) from the dropdown menu, then I display handyman's home screen after validating all the data fields on the screen
-                else if (positionInt == 2 && isFirstValid && isLastValid && isEmailValid && isPasswordValid && isConfirmPasswordValid) {
+                else if (positionInt == 2) {
                     sign_up_btn.setOnClickListener(v -> SetValidation());
                     sign_up_btn.setOnClickListener(v -> openHandymanHome());
                 }
                 //if the integer value is 0, then I show a validate all the data fields but show a message asking to select an option
                 else if (positionInt == 0) {
-                    Toast.makeText(getApplicationContext(), "Please select a drop down option", Toast.LENGTH_SHORT).show();
                     sign_up_btn.setOnClickListener(v -> SetValidation());
+                    Toast.makeText(getApplicationContext(), "Please select a drop down option", Toast.LENGTH_SHORT).show();
                 }
             }
 
@@ -86,29 +88,20 @@ public class Register extends AppCompatActivity {
 
             }
         });
+
     }
 
-    // function to display client home screen along with the client's name that was used during registration
+    // function to display client home screen
     public void openClientHome() {
-        //converts from first name EditTex data type to String data type
-        String str = firstName.getText().toString();
-        //creating an intent to go to next screen
         Intent intent1 = new Intent(this, Client_home.class);
-        //using the putExtra method (key, value) pair to get the name of the client
-        intent1.putExtra("fname", str);
-        //starting the activity (going to next screen)
+        //intent1.putExtra("position", positionInt);
         startActivity(intent1);
     }
 
-    // function to display handyman home screen along with the client's name that was used during registration
+    // function to display handyman home screen
     public void openHandymanHome() {
-        //converts from first name EditTex data type to String data type
-        String str = firstName.getText().toString();
-        //creating an intent to go to next screen
         Intent intent2 = new Intent(this, Handyman_home.class);
-        //using the putExtra method (key, value) pair to get the name of the client
-        intent2.putExtra("fname", str);
-        //starting the activity (going to next screen)
+        //intent2.putExtra("position", positionInt);
         startActivity(intent2);
     }
 
