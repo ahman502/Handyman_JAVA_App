@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
 
         fAuth = FirebaseAuth.getInstance();
 
-        sign_up_btn.setOnClickListener(new View.OnClickListener(){
+        /*sign_up_btn.setOnClickListener(new View.OnClickListener(){
 
             @Override
             public void onClick(View view) {
@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
             }
-        });
+        });*/
 
     }
 
