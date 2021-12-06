@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity">
+
+
+    <item
+        android:id="@+id/settings"
+        android:title="Settings"
+        app:showAsAction="never"
+        android:icon="@drawable/user_settings_icon" />
+    <item
+        android:id="@+id/chat"
+        android:title="Chat"
+        app:showAsAction="never"
+        android:icon="@drawable/user_chat_icon"/>
+
+    <item
+        android:id="@+id/notification"
+        android:title="Notifications"
+        app:showAsAction="never"
+        android:icon="@drawable/user_notifications_icon"/>
+</menu>

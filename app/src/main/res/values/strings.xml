@@ -10,8 +10,12 @@
     <string name="error_invalid_password">Password must be at least 8 characters long with uppercase, lowercase, special characters and digits</string>
     <string name="confirm_password">Please re-enter password to confirm registration</string>
     <string name="passwords_dont_match">Passwords do not match. Try again</string>
-    <!-- <string-array name="categories">
-        <item>Client</item>
-        <item>Handyman</item>
-    </string-array> -->
+    <string name="welcome_text">What can I help you with today?</string>
+    <string name="home_care">Home Care</string>
+    <string name="client_name">TextView</string>
+    <string name="Electric">Electric</string>
+    <string name="plumbing">Plumbing</string>
+    <string name="pest_control">Pest Control</string>
+    <string name="aapliances">Appliances</string>
+    <string name="auto_care">Auto Care</string>
 </resources>

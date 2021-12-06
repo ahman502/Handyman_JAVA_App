@@ -4,6 +4,305 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/blue"
     tools:context=".Client_home">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="92dp"
+        android:layout_height="92dp"
+        android:layout_marginTop="72dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_launcher_foreground" />
+
+    <TextView
+        android:id="@+id/clientName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/nunito_light"
+        android:text="@string/client_name"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="32sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/nunito_light"
+        android:text="@string/welcome_text"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/clientName" />
+
+    <!-- HOME CARE ICON AND LABEL-->
+
+    <RelativeLayout
+        android:id="@+id/image_btn"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginRight="80dp"
+        app:layout_constraintEnd_toStartOf="@+id/image_btn1"
+        app:layout_constraintHorizontal_bias="0.07"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/description">
+
+    </RelativeLayout>
+
+    <ImageButton
+        android:id="@+id/home_care_btn"
+        android:elevation="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/circle_icons"
+        android:minWidth="80dp"
+        android:minHeight="80dp"
+        android:src="@drawable/home_care"
+        app:layout_constraintEnd_toEndOf="@+id/image_btn"
+        app:layout_constraintStart_toStartOf="@+id/image_btn"
+        app:layout_constraintTop_toTopOf="@+id/image_btn" />
+
+    <TextView
+        android:id="@+id/home_care_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/nunito_light"
+        android:text="@string/home_care"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/image_btn"
+        app:layout_constraintStart_toStartOf="@+id/image_btn"
+        app:layout_constraintTop_toBottomOf="@+id/image_btn" />
+
+    <!-- ELECTRIC ICON AND LABEL-->
+
+    <RelativeLayout
+        android:id="@+id/image_btn1"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="80dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/description">
+
+    </RelativeLayout>
+
+    <ImageButton
+        android:id="@+id/electric_btn"
+        android:elevation="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/circle_icons"
+        android:minWidth="80dp"
+        android:minHeight="80dp"
+        android:src="@drawable/electric"
+        app:layout_constraintEnd_toEndOf="@+id/image_btn1"
+        app:layout_constraintStart_toStartOf="@+id/image_btn1"
+        app:layout_constraintTop_toTopOf="@+id/image_btn1" />
+
+    <TextView
+        android:id="@+id/electric_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/nunito_light"
+        android:text="@string/Electric"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/image_btn1"
+        app:layout_constraintStart_toStartOf="@+id/image_btn1"
+        app:layout_constraintTop_toBottomOf="@+id/image_btn1" />
+
+    <!-- PLUMBING ICON AND LABEL-->
+
+    <RelativeLayout
+        android:id="@+id/image_btn2"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintEnd_toStartOf="@+id/image_btn3"
+        app:layout_constraintHorizontal_bias="0.022"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/home_care_label">
+
+    </RelativeLayout>
+
+    <ImageButton
+        android:id="@+id/plumbing_btn"
+        android:elevation="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/circle_icons"
+        android:minWidth="80dp"
+        android:minHeight="80dp"
+        android:src="@drawable/plumbing"
+        app:layout_constraintEnd_toEndOf="@+id/image_btn2"
+        app:layout_constraintStart_toStartOf="@+id/image_btn2"
+        app:layout_constraintTop_toTopOf="@+id/image_btn2" />
+
+    <TextView
+        android:id="@+id/plumbing_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/nunito_light"
+        android:text="@string/plumbing"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/image_btn2"
+        app:layout_constraintStart_toStartOf="@+id/image_btn2"
+        app:layout_constraintTop_toBottomOf="@+id/image_btn2" />
+
+    <!-- PEST CONTROL ICON AND LABEL-->
+
+    <RelativeLayout
+        android:id="@+id/image_btn3"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="80dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/electric_label">
+
+    </RelativeLayout>
+
+    <ImageButton
+        android:id="@+id/pest_control_btn"
+        android:elevation="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/circle_icons"
+        android:minWidth="80dp"
+        android:minHeight="80dp"
+        android:src="@drawable/pest_control"
+        app:layout_constraintEnd_toEndOf="@+id/image_btn3"
+        app:layout_constraintStart_toStartOf="@+id/image_btn3"
+        app:layout_constraintTop_toTopOf="@+id/image_btn3" />
+
+    <TextView
+        android:id="@+id/pest_control_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/nunito_light"
+        android:text="@string/pest_control"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/image_btn3"
+        app:layout_constraintStart_toStartOf="@+id/image_btn3"
+        app:layout_constraintTop_toBottomOf="@+id/image_btn3" />
+
+    <!-- APPLIANCES ICON AND LABEL-->
+
+    <RelativeLayout
+        android:id="@+id/image_btn4"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/plumbing_label">
+
+    </RelativeLayout>
+
+    <ImageButton
+        android:id="@+id/appliances_btn"
+        android:elevation="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/circle_icons"
+        android:minWidth="80dp"
+        android:minHeight="80dp"
+        android:src="@drawable/appliances"
+        app:layout_constraintEnd_toEndOf="@+id/image_btn4"
+        app:layout_constraintStart_toStartOf="@+id/image_btn4"
+        app:layout_constraintTop_toTopOf="@+id/image_btn4" />
+
+    <TextView
+        android:id="@+id/appliances_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/nunito_light"
+        android:text="@string/aapliances"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/image_btn4"
+        app:layout_constraintStart_toStartOf="@+id/image_btn4"
+        app:layout_constraintTop_toBottomOf="@+id/image_btn4" />
+
+    <!-- AUTO CARE ICON AND LABEL-->
+
+    <RelativeLayout
+        android:id="@+id/image_btn5"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="80dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pest_control_label">
+
+    </RelativeLayout>
+
+    <ImageButton
+        android:id="@+id/auto_care_btn"
+        android:elevation="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/circle_icons"
+        android:minWidth="80dp"
+        android:minHeight="80dp"
+        android:src="@drawable/auto_care"
+        app:layout_constraintEnd_toEndOf="@+id/image_btn5"
+        app:layout_constraintStart_toStartOf="@+id/image_btn5"
+        app:layout_constraintTop_toTopOf="@+id/image_btn5" />
+
+    <TextView
+        android:id="@+id/auto_care_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/nunito_light"
+        android:text="@string/auto_care"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/image_btn5"
+        app:layout_constraintStart_toStartOf="@+id/image_btn5"
+        app:layout_constraintTop_toBottomOf="@+id/image_btn5" />
+
+    <RelativeLayout
+        android:id="@+id/rlContainer"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottom_navigation"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            app:menu="@menu/menu_items" />
+    </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
