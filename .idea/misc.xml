@@ -16,6 +16,7 @@
         <entry key="app/src/main/res/drawable/user_notifications_icon.xml" value="0.2984375" />
         <entry key="app/src/main/res/drawable/user_settings_icon.xml" value="0.2984375" />
         <entry key="app/src/main/res/layout/activity_client_home.xml" value="0.375" />
+        <entry key="app/src/main/res/layout/activity_electric_list.xml" value="0.2682291666666667" />
         <entry key="app/src/main/res/layout/activity_handyman_home.xml" value="0.2574074074074074" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_plumbing_list.xml" value="0.28229166666666666" />

@@ -38,11 +38,69 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/nunito_light"
-        android:text="@string/welcome_text"
+        android:text="Please update the information below"
         android:textColor="@color/white"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/HandymanNameForHomeScreen" />
+
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:background="@color/purple_200"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/description"
+        app:layout_constraintVertical_bias="0.113">
+
+        <CheckBox
+            android:id="@+id/chkJava"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="10dp"
+            android:onClick="onCheckboxClicked"
+            android:padding="10dp"
+            android:text="Java" />
+
+        <CheckBox
+            android:id="@+id/chkPython"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="100dp"
+            android:onClick="onCheckboxClicked"
+            android:padding="10dp"
+            android:text="Python" />
+
+        <CheckBox
+            android:id="@+id/chkAndroid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="100dp"
+            android:onClick="onCheckboxClicked"
+            android:padding="10dp"
+            android:text="Android" />
+
+        <CheckBox
+            android:id="@+id/chkAngular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="100dp"
+            android:onClick="onCheckboxClicked"
+            android:padding="10dp"
+            android:text="AngularJS" />
+
+        <Button
+            android:id="@+id/getBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="100dp"
+            android:text="Get Details" />
+    </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

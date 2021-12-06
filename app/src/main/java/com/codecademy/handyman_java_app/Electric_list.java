@@ -9,12 +9,12 @@ import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class Plumbing_list extends AppCompatActivity {
+public class Electric_list extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_plumbing_list);
+        setContentView(R.layout.activity_electric_list);
 
         //this is the navigation bar at the bottom of client's home screen to view items like
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);

@@ -18,6 +18,7 @@ public class Client_home extends AppCompatActivity {
     //variables
     TextView firstname_used_for_signup;
     ImageButton plumbing_list;
+    ImageButton electrician_list;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,25 +46,18 @@ public class Client_home extends AppCompatActivity {
 
                     //if the id is notification, we are taken to a page that displays their notifications
                     case R.id.notification:
-                        /* Intent function below works fine, but will be implemented if we have time
-                        Intent intent = new Intent(Client_home.this, Handyman_home.class);
-                        startActivity(intent); */
-                        Toast.makeText(getApplicationContext(), "Notifications", Toast.LENGTH_SHORT).show();
-                        return true;
 
-                    //if the id is settings, then the settings are displayed
+                        //if the id is settings, then the settings are displayed
                     case R.id.settings:
-                        Toast.makeText(getApplicationContext(), "Settings", Toast.LENGTH_SHORT).show();
-                        return true;
 
-                    //if the id is chat, then the chatting screen is displayed
+                        //if the id is chat, then the chatting screen is displayed
                     case R.id.chat:
-                        Toast.makeText(getApplicationContext(), "Chat", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "Stay tuned, feature coming soon!", Toast.LENGTH_SHORT).show();
                         return true;
 
                     //if the id is home, then the home is displayed
                     case R.id.home:
-                        Toast.makeText(getApplicationContext(), "Home", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(getApplicationContext(), "Home", Toast.LENGTH_SHORT).show();
                         return true;
 
                     default: return true;
@@ -71,9 +65,13 @@ public class Client_home extends AppCompatActivity {
             }
         });
 
-        //setting onClickListener on plumbing button to open a list a plumbing related jobs
+        //setting onClickListener on plumbing button to open a list of plumbers
         plumbing_list = findViewById(R.id.plumbing_btn);
         plumbing_list.setOnClickListener(v -> openPlumbingActivity());
+
+        //setting onClickListener on electric button to open a list of electricians
+        electrician_list = findViewById(R.id.electric_btn);
+        electrician_list.setOnClickListener(v -> openElectricActivity());
 
     }
 
@@ -84,8 +82,20 @@ public class Client_home extends AppCompatActivity {
         startActivity(plumbing_list_activity);
     }
 
+    //function to open and display a new activity
+    public void openElectricActivity(){
+        //when this function is called, we will be navigated to the activity_electric_list.xml file (Electric_list.java class)
+        Intent electric_list_activity = new Intent(this, Electric_list.class);
+        startActivity(electric_list_activity);
+    }
 
+    public void toastMsg(String msg) {
+        Toast toast = Toast.makeText(this, msg, Toast.LENGTH_LONG);
+        toast.show();
+    }
 
-
+    public void displayToastMsg(View v) {
+        toastMsg("Stay tuned, feature coming soon!");
+    }
 
 }
