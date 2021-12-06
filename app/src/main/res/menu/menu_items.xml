@@ -6,10 +6,17 @@
 
 
     <item
+        android:id="@+id/home"
+        android:title="Home"
+        app:showAsAction="never"
+        android:icon="@drawable/user_home_icon" />
+
+    <item
         android:id="@+id/settings"
         android:title="Settings"
         app:showAsAction="never"
         android:icon="@drawable/user_settings_icon" />
+
     <item
         android:id="@+id/chat"
         android:title="Chat"

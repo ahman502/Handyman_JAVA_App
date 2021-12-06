@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     Button submit_btn, sign_up_btn, forgot_password;
     boolean isEmailValid, isPasswordValid;
     FirebaseAuth fAuth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -152,6 +153,17 @@ public class MainActivity extends AppCompatActivity {
         return matcher.matches();
 
     }
+
+    public void toastMsg(String msg) {
+        Toast toast = Toast.makeText(this, msg, Toast.LENGTH_LONG);
+        toast.show();
+    }
+
+    public void displayToastMsg(View v) {
+        toastMsg("Stay tuned, feature coming soon!");
+    }
+
+
 }
 
 
