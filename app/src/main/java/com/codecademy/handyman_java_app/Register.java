@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.AdapterView;
@@ -14,6 +15,13 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -25,6 +33,9 @@ public class Register extends AppCompatActivity {
     Button submit_btn, sign_up_btn;
     Spinner spinner;
     int positionInt;
+    FirebaseAuth fAuth;
+    String userID;
+
 
     //creating an array of strings for the dropdown menu
     String[] categories = {"Select an option", "Client", "Handyman"};
@@ -43,6 +54,8 @@ public class Register extends AppCompatActivity {
         sign_up_btn = findViewById(R.id.sign_up_btn);
         submit_btn = findViewById(R.id.submit_btn);
 
+        fAuth = FirebaseAuth.getInstance();
+        FirebaseFirestore fStore = FirebaseFirestore.getInstance();
         //setting on click listeners on the button
         submit_btn.setOnClickListener(v -> openNewActivity());        //sign in button to sign into the application
 
@@ -65,15 +78,60 @@ public class Register extends AppCompatActivity {
                 //turning the string values of the spinner items into integers
                 positionInt = Integer.valueOf(positionOfSelectedDataFromSpinner);
 
+
                 //if the integer value is 1 (Client) from the dropdown menu, then I display client's home screen after validating all the data fields on the screen
                 if (positionInt == 1) {
                     sign_up_btn.setOnClickListener(v -> SetValidation());
                     sign_up_btn.setOnClickListener(v -> openClientHome());
+                    String sFirstName = firstName.getText().toString().trim();
+                    String sLastName = lastName.getText().toString().trim();
+                    String sEmail = email_address.getText().toString().trim();
+                    String sPassword = password.getText().toString().trim();
+                    fAuth.createUserWithEmailAndPassword(sEmail,sPassword).addOnCompleteListener((task )-> {
+                        if(task.isSuccessful()){
+                            userID = fAuth.getCurrentUser().getUid();
+                            DocumentReference documentReference = fStore.collection("Client").document(userID);
+                            Map<String, Object> user = new HashMap<>();
+                            user.put("fName", sFirstName);
+                            user.put("lName", sLastName);
+                            user.put("eMail_", sEmail);
+                            user.put("passWord", sPassword);
+                            documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void unused) {
+                                    Log.d("Tag", "Success");
+                                }
+                            });
+                        }
+                    });
+
+
                 }
                 //if the integer value is 2 (Handyman) from the dropdown menu, then I display handyman's home screen after validating all the data fields on the screen
                 else if (positionInt == 2) {
                     sign_up_btn.setOnClickListener(v -> SetValidation());
                     sign_up_btn.setOnClickListener(v -> openHandymanHome());
+                    String sFirstName = firstName.getText().toString().trim();
+                    String sLastName = lastName.getText().toString().trim();
+                    String sEmail = email_address.getText().toString().trim();
+                    String sPassword = password.getText().toString().trim();
+                    fAuth.createUserWithEmailAndPassword(sEmail,sPassword).addOnCompleteListener((task )-> {
+                        if(task.isSuccessful()){
+                            userID = fAuth.getCurrentUser().getUid();
+                            DocumentReference documentReference = fStore.collection("Handyman").document(userID);
+                            Map<String, Object> user = new HashMap<>();
+                            user.put("fName", sFirstName);
+                            user.put("lName", sLastName);
+                            user.put("eMail_", sEmail);
+                            user.put("passWord", sPassword);
+                            documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void unused) {
+                                    Log.d("Tag", "Success");
+                                }
+                            });
+                        }
+                    });
                 }
                 //if the integer value is 0, then I show a validate all the data fields but show a message asking to select an option
                 else if (positionInt == 0) {
