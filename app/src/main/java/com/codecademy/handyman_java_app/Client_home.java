@@ -57,7 +57,6 @@ public class Client_home extends AppCompatActivity {
 
                     //if the id is home, then the home is displayed
                     case R.id.home:
-                        //Toast.makeText(getApplicationContext(), "Home", Toast.LENGTH_SHORT).show();
                         return true;
 
                     default: return true;

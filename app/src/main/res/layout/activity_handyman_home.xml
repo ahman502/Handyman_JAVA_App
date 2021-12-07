@@ -11,7 +11,7 @@
         android:id="@+id/imageView"
         android:layout_width="92dp"
         android:layout_height="92dp"
-        android:layout_marginTop="72dp"
+        android:layout_marginTop="50dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -21,7 +21,7 @@
         android:id="@+id/HandymanNameForHomeScreen"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="0dp"
         android:fontFamily="@font/nunito_light"
         android:text="TextView"
         android:textAlignment="center"
@@ -38,7 +38,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/nunito_light"
-        android:text="Please update the information below"
+        android:text="Please update your information below to continue"
         android:textColor="@color/white"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -46,60 +46,128 @@
         app:layout_constraintTop_toBottomOf="@+id/HandymanNameForHomeScreen" />
 
     <LinearLayout
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:background="@color/purple_200"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/description"
-        app:layout_constraintVertical_bias="0.113">
+        app:layout_constraintVertical_bias="0.567">
+
+
+        <TextView
+            android:id="@+id/about_me_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nunito_light"
+            android:text="About Me:"
+            android:paddingLeft="5dp"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold|italic" />
+
+        <EditText
+            android:id="@+id/Handyman_about_me"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:ems="10"
+            android:gravity="start|top"
+            android:hint="Add a description"
+            android:inputType="textMultiLine"
+            android:paddingLeft="5dp"
+            android:paddingTop="5dp"
+            android:textColor="@color/white"
+            android:textColorHighlight="@color/teal_200"
+            android:textColorLink="@color/teal_200" />
+
+        <TextView
+            android:id="@+id/services_offered_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nunito_light"
+            android:text="Services Offered (Select all that apply):"
+            android:paddingLeft="5dp"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold|italic" />
 
         <CheckBox
-            android:id="@+id/chkJava"
+            android:id="@+id/check_home_care"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="100dp"
             android:layout_marginTop="10dp"
             android:onClick="onCheckboxClicked"
-            android:padding="10dp"
-            android:text="Java" />
+            android:buttonTint="@color/white"
+            android:padding="5dp"
+            android:text="Home Care"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
 
         <CheckBox
-            android:id="@+id/chkPython"
+            android:id="@+id/check_electric"
+            android:textSize="16sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="100dp"
+            android:buttonTint="@color/white"
             android:onClick="onCheckboxClicked"
-            android:padding="10dp"
-            android:text="Python" />
+            android:padding="5dp"
+            android:textColor="@color/white"
+            android:text="Electric" />
 
         <CheckBox
-            android:id="@+id/chkAndroid"
+            android:id="@+id/check_plumbing"
+            android:textSize="16sp"
+            android:buttonTint="@color/white"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="100dp"
             android:onClick="onCheckboxClicked"
-            android:padding="10dp"
-            android:text="Android" />
+            android:padding="5dp"
+            android:textColor="@color/white"
+            android:text="Plumbing" />
 
         <CheckBox
-            android:id="@+id/chkAngular"
+            android:id="@+id/check_pest_control"
+            android:textSize="16sp"
+            android:layout_width="wrap_content"
+            android:buttonTint="@color/white"
+            android:layout_height="wrap_content"
+            android:onClick="onCheckboxClicked"
+            android:padding="5dp"
+            android:textColor="@color/white"
+            android:text="Pest Control" />
+
+        <CheckBox
+            android:id="@+id/check_appliances"
+            android:textSize="16sp"
+            android:layout_width="wrap_content"
+            android:buttonTint="@color/white"
+            android:layout_height="wrap_content"
+            android:onClick="onCheckboxClicked"
+            android:padding="5dp"
+            android:textColor="@color/white"
+            android:text="Appliances" />
+
+        <CheckBox
+            android:id="@+id/check_auto_care"
+            android:textSize="16sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="100dp"
+            android:buttonTint="@color/white"
             android:onClick="onCheckboxClicked"
-            android:padding="10dp"
-            android:text="AngularJS" />
+            android:padding="5dp"
+            android:textColor="@color/white"
+            android:text="Auto Care" />
 
         <Button
-            android:id="@+id/getBtn"
-            android:layout_width="wrap_content"
+            android:id="@+id/update_info_btn"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="100dp"
-            android:text="Get Details" />
+            android:backgroundTint="@color/white"
+            android:text="Update"
+            android:textColor="@color/blue"
+            android:textStyle="bold" />
     </LinearLayout>
 
 
