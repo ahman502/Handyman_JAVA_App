@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Handyman_JAVA_App">
         <activity
+            android:name=".Electric_list"
+            android:exported="true" />
+        <activity
             android:name=".Plumbing_list"
             android:exported="true" />
         <activity
