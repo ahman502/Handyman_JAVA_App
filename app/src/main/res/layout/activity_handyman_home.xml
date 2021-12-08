@@ -207,6 +207,7 @@
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
             android:layout_marginTop="30dp"
+            android:layout_marginBottom="8dp"
             android:text="Work Experience\nUpload before and after photos of your work below to share with nearby clients"
             android:textColor="@color/white"
             android:textSize="16sp"

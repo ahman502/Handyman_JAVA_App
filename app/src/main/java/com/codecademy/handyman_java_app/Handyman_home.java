@@ -29,11 +29,15 @@ public class Handyman_home extends AppCompatActivity {
     EditText about_me;
     Button updateInfo;
     String str, str2;
+    Uri selectedImageUri;
     LinearLayout ll, hll;
     // One Preview Image
-    ImageButton IVPreviewImage;
+    ImageButton IVPreviewImage, IVPreviewImage2, IVPreviewImage3;
     // constant to compare the activity result code
     int SELECT_PICTURE = 200;
+    boolean clicked = false;
+    boolean clicked2 = false;
+    boolean clicked3 = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -114,18 +118,45 @@ public class Handyman_home extends AppCompatActivity {
 
         // register the UI widgets with their appropriate
         IVPreviewImage = findViewById(R.id.IVPreviewImage);
+        IVPreviewImage2 = findViewById(R.id.IVPreviewImage2);
+        IVPreviewImage3 = findViewById(R.id.IVPreviewImage3);
 
         // handle the Choose Image button to trigger the image chooser function
         IVPreviewImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                clicked = true;
+                clicked2 = false;
+                clicked3 = false;
+                imageChooser();
+            }
+        });
+
+        //handle the Choose Image button to trigger the image chooser function
+        IVPreviewImage2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                clicked2 = true;
+                clicked = false;
+                clicked3 = false;
+                imageChooser();
+            }
+        });
+
+        // handle the Choose Image button to trigger the image chooser function
+        IVPreviewImage3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                clicked3 = true;
+                clicked2 = false;
+                clicked = false;
                 imageChooser();
             }
         });
 
     }
 
-    // this function is triggered when the Select Image Button is clicked
+    // this function is triggered when the ImageButton is clicked
     void imageChooser() {
 
         // create an instance of the intent of the type image
@@ -134,26 +165,56 @@ public class Handyman_home extends AppCompatActivity {
         i.setAction(Intent.ACTION_GET_CONTENT);
 
         // pass the constant to compare it with the returned requestCode
-        startActivityForResult(Intent.createChooser(i, "Select Picture"), SELECT_PICTURE);
+        startActivityForResult(Intent.createChooser(i, "Select An Image"), SELECT_PICTURE);
     }
 
     // this function is triggered when user selects the image from the imageChooser
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (resultCode == RESULT_OK) {
+        if(clicked) {
+            if (resultCode == RESULT_OK) {
 
-            // compare the resultCode with the
-            // SELECT_PICTURE constant
-            if (requestCode == SELECT_PICTURE) {
-                // Get the url of the image from data
-                Uri selectedImageUri = data.getData();
-                if (null != selectedImageUri) {
-                    // update the preview image in the layout
-                    IVPreviewImage.setImageURI(selectedImageUri);
+                // compare the resultCode with the SELECT_PICTURE constant
+                if (requestCode == SELECT_PICTURE) {
+                    // Get the url of the image from data
+                    selectedImageUri = data.getData();
+
+                    if (null != selectedImageUri) {
+                        IVPreviewImage.setImageURI(selectedImageUri);
+                    }
                 }
             }
         }
+        if(clicked2) {
+            if (resultCode == RESULT_OK) {
+
+                // compare the resultCode with the SELECT_PICTURE constant
+                if (requestCode == SELECT_PICTURE) {
+                    // Get the url of the image from data
+                    selectedImageUri = data.getData();
+
+                    if (null != selectedImageUri) {
+                        IVPreviewImage2.setImageURI(selectedImageUri);
+                    }
+                }
+            }
+        }
+        if(clicked3) {
+            if (resultCode == RESULT_OK) {
+
+                // compare the resultCode with the SELECT_PICTURE constant
+                if (requestCode == SELECT_PICTURE) {
+                    // Get the url of the image from data
+                    selectedImageUri = data.getData();
+
+                    if (null != selectedImageUri) {
+                        IVPreviewImage3.setImageURI(selectedImageUri);
+                    }
+                }
+            }
+        }
+
     }
 
     //function to open and display a new activity
