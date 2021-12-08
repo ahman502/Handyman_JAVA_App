@@ -306,8 +306,8 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_alignParentBottom="true"
-            app:menu="@menu/menu_items"
-            app:labelVisibilityMode="labeled"/>
+            app:labelVisibilityMode="labeled"
+            app:menu="@menu/menu_items" />
     </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

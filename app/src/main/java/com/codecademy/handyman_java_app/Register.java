@@ -3,7 +3,6 @@ package com.codecademy.handyman_java_app;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
@@ -101,18 +100,22 @@ public class Register extends AppCompatActivity {
         intent1.putExtra("fname", str);
         //starting the activity (going to next screen)
         startActivity(intent1);
+        finish();
     }
 
     // function to display handyman home screen
     public void openHandymanHome() {
         //converts from first name EditTex data type to String data type
         String str = firstName.getText().toString();
+        String str2 = lastName.getText().toString();
         //creating an intent to go to next screen
         Intent intent2 = new Intent(this, Handyman_home.class);
         //using the putExtra method (key, value) pair to get the name of the client
         intent2.putExtra("fname", str);
+        intent2.putExtra("lname", str2);
         //starting the activity (going to next screen)
         startActivity(intent2);
+        finish();
     }
 
     //function to open and display a new activity
@@ -120,6 +123,7 @@ public class Register extends AppCompatActivity {
         //when this function is called, we will be navigated to the activity_main.xml file (MainActivity.java class)
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
+        finish();
     }
 
     // function to check for validation of multiple data fields

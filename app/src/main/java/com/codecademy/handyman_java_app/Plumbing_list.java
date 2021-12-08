@@ -5,16 +5,22 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class Plumbing_list extends AppCompatActivity {
 
+    TextView txt_input, p2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_plumbing_list);
+
+        txt_input = findViewById(R.id.txt_input);
+        p2 = findViewById(R.id.p2);
 
         //this is the navigation bar at the bottom of client's home screen to view items like
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);

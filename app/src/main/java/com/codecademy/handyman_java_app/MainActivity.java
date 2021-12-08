@@ -84,6 +84,7 @@ public class MainActivity extends AppCompatActivity {
         //when this function is called, we will be navigated to the register.xml file (Register.java class)
         Intent intent = new Intent(this, Register.class);
         startActivity(intent);
+        finish();
     }
 
     // function to check for validation of multiple data fields

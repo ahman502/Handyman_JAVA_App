@@ -24,15 +24,48 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ListView
+    <LinearLayout
         android:layout_width="360dp"
         android:layout_height="450dp"
+        android:orientation="vertical"
         android:background="@color/black"
         app:layout_constraintBottom_toTopOf="@+id/rlContainer"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.476"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/plumber_list" />
+        app:layout_constraintTop_toBottomOf="@+id/plumber_list">
+
+        <!-- <ListView
+            android:id="@+id/plumber_name_list"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            app:layout_constraintBottom_toTopOf="@+id/rlContainer"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.476"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/plumber_list" /> -->
+
+        <TextView
+            android:id="@+id/txt_input"
+            android:layout_width="fill_parent"
+            android:layout_height="80dp"
+            android:text="TextView"
+            android:background="@color/teal_700"
+            android:textColor="@color/white">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/p2"
+            android:layout_width="fill_parent"
+            android:layout_height="80dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/teal_700"
+            android:text="TextView"
+            android:textColor="@color/white">
+
+        </TextView>
+
+    </LinearLayout>
 
     <RelativeLayout
         android:id="@+id/rlContainer"
