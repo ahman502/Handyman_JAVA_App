@@ -7,7 +7,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,6 +22,8 @@ public class Client_home extends AppCompatActivity {
     TextView firstname_used_for_signup;
     ImageButton plumbing_list;
     ImageButton electrician_list;
+    LinearLayout linearLayout;
+    Animation slideUp, slideDown;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +37,8 @@ public class Client_home extends AppCompatActivity {
         String str = intent1.getStringExtra("fname");
         //displaying the string with welcome message
         firstname_used_for_signup.setText("Welcome, " + str + "!");
+
+        linearLayout = findViewById(R.id.settings_linearLayout);
 
 
         //this is the navigation bar at the bottom of client's home screen to view items like
@@ -47,16 +54,34 @@ public class Client_home extends AppCompatActivity {
                     //if the id is notification, we are taken to a page that displays their notifications
                     case R.id.notification:
 
-                        //if the id is settings, then the settings are displayed
-                    case R.id.settings:
-
-                        //if the id is chat, then the chatting screen is displayed
+                    //if the id is chat, then the chatting screen is displayed
                     case R.id.chat:
+                        //bottomNavigationView.getMenu().setGroupCheckable(0, true, true);
                         Toast.makeText(getApplicationContext(), "Stay tuned, feature coming soon!", Toast.LENGTH_SHORT).show();
+                        return false;
+
+                    //if the id is settings, then the settings are displayed
+                    case R.id.settings:
+                        slideUp = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.layout_slide_up);
+                        slideDown = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.layout_slide_down);
+
+                        if(linearLayout.getVisibility() == View.INVISIBLE){
+
+                            linearLayout.startAnimation(slideUp);
+                            linearLayout.setVisibility(View.VISIBLE);
+                        }
                         return true;
 
                     //if the id is home, then the home is displayed
                     case R.id.home:
+                        slideUp = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.layout_slide_up);
+                        slideDown = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.layout_slide_down);
+
+                        if(linearLayout.getVisibility() == View.VISIBLE){
+
+                            linearLayout.startAnimation(slideDown);
+                            linearLayout.setVisibility(View.INVISIBLE);
+                        }
                         return true;
 
                     default: return true;

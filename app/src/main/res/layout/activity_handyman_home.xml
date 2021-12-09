@@ -176,6 +176,7 @@
             android:textStyle="bold" />
     </LinearLayout>
 
+
     <LinearLayout
         android:id="@+id/handyman_home_linear_layout"
         android:layout_width="match_parent"
@@ -243,12 +244,13 @@
 
                 <EditText
                     android:id="@+id/editView2"
-                    android:layout_width="300dp"
+                    android:layout_width="250dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="8dp"
                     android:fontFamily="@font/nunito_light"
                     android:hint="Add Description Here"
+                    android:backgroundTint="@color/white"
                     android:inputType="textMultiLine"
                     android:maxLength="200"
                     android:maxLines="8"
@@ -286,10 +288,11 @@
 
                 <EditText
                     android:id="@+id/editView4"
-                    android:layout_width="300dp"
+                    android:layout_width="250dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="8dp"
+                    android:backgroundTint="@color/white"
                     android:fontFamily="@font/nunito_light"
                     android:hint="Add Description Here"
                     android:inputType="textMultiLine"
@@ -329,11 +332,12 @@
 
                 <EditText
                     android:id="@+id/editView6"
-                    android:layout_width="300dp"
+                    android:layout_width="250dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="8dp"
                     android:fontFamily="@font/nunito_light"
+                    android:backgroundTint="@color/white"
                     android:hint="Add Description Here"
                     android:inputType="textMultiLine"
                     android:maxLength="200"
@@ -346,7 +350,6 @@
             </LinearLayout>
 
         </ScrollView>
-
 
         <RelativeLayout
             android:id="@+id/rlContainer"
@@ -375,7 +378,6 @@
                 android:backgroundTint="@color/white"
                 android:text="Save Changes"
                 android:textColor="@color/blue" />
-
 
             <com.google.android.material.bottomnavigation.BottomNavigationView
                 android:id="@+id/bottom_navigation"

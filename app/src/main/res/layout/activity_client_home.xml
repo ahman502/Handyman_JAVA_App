@@ -63,7 +63,6 @@
     <ImageButton
         android:id="@+id/home_care_btn"
         android:onClick="displayToastMsg"
-        android:elevation="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/circle_icons"
@@ -103,7 +102,6 @@
 
     <ImageButton
         android:id="@+id/electric_btn"
-        android:elevation="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/circle_icons"
@@ -145,7 +143,6 @@
 
     <ImageButton
         android:id="@+id/plumbing_btn"
-        android:elevation="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/circle_icons"
@@ -186,7 +183,6 @@
     <ImageButton
         android:id="@+id/pest_control_btn"
         android:onClick="displayToastMsg"
-        android:elevation="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/circle_icons"
@@ -227,7 +223,6 @@
     <ImageButton
         android:id="@+id/appliances_btn"
         android:onClick="displayToastMsg"
-        android:elevation="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/circle_icons"
@@ -268,7 +263,6 @@
     <ImageButton
         android:id="@+id/auto_care_btn"
         android:onClick="displayToastMsg"
-        android:elevation="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/circle_icons"
@@ -292,6 +286,152 @@
         app:layout_constraintEnd_toEndOf="@+id/image_btn5"
         app:layout_constraintStart_toStartOf="@+id/image_btn5"
         app:layout_constraintTop_toBottomOf="@+id/image_btn5" />
+
+
+    <!-- SHOW SETTINGS LAYOUT -->
+    <LinearLayout
+        android:id="@+id/settings_linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="60dp"
+        android:orientation="vertical"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.473"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@color/blue">
+
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="92dp"
+            android:layout_height="92dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="72dp"
+            app:srcCompat="@drawable/ic_launcher_foreground" />
+
+        <TextView
+            android:id="@+id/settings_heading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/nunito_light"
+            android:text="Settings"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="32sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/settings_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nunito_light"
+            android:textAlignment="center"
+            android:text="Update your settings and personal information below"
+            android:textColor="@color/white"
+            android:textSize="14sp" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="420dp"
+            android:minHeight="420dp"
+            android:layout_marginTop="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="420dp"
+                android:minHeight="420dp"
+                android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/profileImage"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="5dp"
+                android:layout_gravity="center_horizontal"
+                android:background="@color/white"
+                app:srcCompat="@drawable/add" />
+
+
+            <EditText
+                android:id="@+id/textView2"
+                android:layout_width="270dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:backgroundTint="@color/white"
+                android:fontFamily="@font/nunito_light"
+                android:text="User First Name"
+                android:textAlignment="center"
+                android:textColor="@color/white" />
+
+            <EditText
+                android:id="@+id/textView3"
+                android:layout_width="270dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:backgroundTint="@color/white"
+                android:fontFamily="@font/nunito_light"
+                android:text="User Last Name"
+                android:textAlignment="center"
+                android:textColor="@color/white" />
+
+            <EditText
+                android:id="@+id/editTextTextEmailAddress"
+                android:layout_width="270dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:backgroundTint="@color/white"
+                android:fontFamily="@font/nunito_light"
+                android:text="User Email Address"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:ems="10"
+                android:inputType="textEmailAddress" />
+
+            <EditText
+                android:id="@+id/editTextTextPassword"
+                android:layout_width="270dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:backgroundTint="@color/white"
+                android:fontFamily="@font/nunito_light"
+                android:hint="User Current Password"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textColorHint ="@color/white"
+                android:inputType="textPassword" />
+
+            <EditText
+                android:id="@+id/confirmNewPassword"
+                android:layout_width="270dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:backgroundTint="@color/white"
+                android:fontFamily="@font/nunito_light"
+                android:hint="Confirm New Password"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textColorHint ="@color/white"
+                android:inputType="textPassword" />
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="210dp"
+                android:layout_height="42dp"
+                android:text="Save Changes"
+                android:layout_gravity="center_horizontal"
+                android:backgroundTint="@color/white"
+                android:textColor="@color/blue"
+                android:layout_marginTop="15dp"/>
+
+            </LinearLayout>
+
+    </ScrollView>
+
+
+    </LinearLayout>
 
     <RelativeLayout
         android:id="@+id/rlContainer"

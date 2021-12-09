@@ -1,5 +1,6 @@
 package com.codecademy.handyman_java_app;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -13,6 +14,7 @@ import android.text.Spanned;
 import android.text.TextWatcher;
 import android.text.style.AbsoluteSizeSpan;
 import android.text.style.StyleSpan;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -22,6 +24,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.Random;
 
@@ -111,11 +115,11 @@ public class Handyman_home extends AppCompatActivity {
             public void onClick(View v) {
 
                 //this is temporary and for testing only, but if they check the Electric checkbox and click the Update button then they are taken to the Electricians list in Client's home
-                if(electricalServices.isChecked()){
-                    openElectricActivity();
-                }
+                //if(electricalServices.isChecked()){
+                    //openElectricActivity();
+                //}
                 //if the Plumbing checkbox is checked, and then the update button is clicked, the handyman is brought to their homescreen
-                else if(plumbingServices.isChecked()){
+                if(plumbingServices.isChecked()){
                     openPlumbingActivity();
                 }
                 //if no checkboxes are checked, a toast message is shown and update button doesn't work
@@ -181,6 +185,36 @@ public class Handyman_home extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "Stay tuned, feature coming soon!", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        //this is the navigation bar at the bottom of client's home screen to view items like
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+        bottomNavigationView.setOnItemSelectedListener(new BottomNavigationView.OnItemSelectedListener() {
+
+            //when a client selects one of the options of the navigation bar
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+                //first we get the id of each menu item
+                switch (item.getItemId()) {
+
+                    //if the id is notification, we are taken to a page that displays their notifications
+                    case R.id.notification:
+
+                        //if the id is settings, then the settings are displayed
+                    case R.id.settings:
+
+                        //if the id is chat, then the chatting screen is displayed
+                    case R.id.chat:
+                        Toast.makeText(getApplicationContext(), "Stay tuned, feature coming soon!", Toast.LENGTH_SHORT).show();
+                        return false;
+
+                    //if the id is home, then the home is displayed
+                    case R.id.home:
+                        return true;
+
+                    default: return true;
+                }
             }
         });
     }
@@ -252,13 +286,13 @@ public class Handyman_home extends AppCompatActivity {
         hll.setVisibility(View.VISIBLE);
     }
 
-    //function to open and display a new activity
+    /* //function to open and display a new activity
     public void openElectricActivity(){
         //when this function is called, we will be navigated to the activity_main.xml file (MainActivity.java class)
         //the code below is just used for testing
         Intent intent7 = new Intent(Handyman_home.this, Electric_list.class);
         startActivity(intent7);
-    }
+    } */
 
     //when a checkbox is clicked on the Handyman screen, we display a toast message for which option was selected
     public void onCheckboxClicked(View view) {

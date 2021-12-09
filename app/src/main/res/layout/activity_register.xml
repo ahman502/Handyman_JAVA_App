@@ -33,10 +33,9 @@
 
     <EditText
         android:id="@+id/firstName"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
-        android:width="270dp"
+        android:layout_width="270dp"
         android:ems="10"
         android:backgroundTint="@color/white"
         android:fontFamily="@font/nunito_light"
