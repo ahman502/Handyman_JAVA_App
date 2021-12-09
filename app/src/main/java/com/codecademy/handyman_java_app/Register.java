@@ -226,8 +226,5 @@ public class Register extends AppCompatActivity {
 
         //get the result using matches() method
         return matcher.matches();
-
     }
-
-
 }

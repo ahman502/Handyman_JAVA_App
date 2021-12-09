@@ -11,8 +11,9 @@
         android:id="@+id/imageView"
         android:layout_width="92dp"
         android:layout_height="92dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="28dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_launcher_foreground" />
@@ -178,7 +179,7 @@
     <LinearLayout
         android:id="@+id/handyman_home_linear_layout"
         android:layout_width="match_parent"
-        android:layout_height="580dp"
+        android:layout_height="600dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -187,16 +188,6 @@
         app:layout_constraintTop_toBottomOf="@+id/HandymanNameForHomeScreen"
         app:layout_constraintVertical_bias="0.567">
 
-        <TextView
-            android:id="@+id/welcome_message"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:fontFamily="@font/nunito_light"
-            android:text="@string/welcome_text"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            />
 
         <TextView
             android:id="@+id/txtView"
@@ -206,16 +197,16 @@
             android:fontFamily="@font/nunito_light"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="20dp"
             android:layout_marginBottom="8dp"
-            android:text="Work Experience\nUpload before and after photos of your work below to share with nearby clients"
+            android:text="Add Work Experience\nUpload before and after photos of your work below to share with nearby clients"
             android:textColor="@color/white"
             android:textSize="16sp"
             />
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="400dp">
+            android:layout_height="403dp">
 
             <LinearLayout
                 android:id="@+id/images_layout"
@@ -232,9 +223,8 @@
                     android:layout_marginTop="20dp"
                     android:adjustViewBounds="true"
                     android:background="@color/white"
-                    android:src="@drawable/add"
                     android:scaleType="fitCenter"
-                    />
+                    android:src="@drawable/add" />
 
                 <EditText
                     android:id="@+id/editView"
@@ -351,24 +341,47 @@
                     android:textAlignment="center"
                     android:textColor="@color/white"
                     android:textColorHint="@color/white"
-                    android:textSize="14sp" />
+                    android:textSize="14sp"
+                    android:layout_marginBottom="10dp"/>
             </LinearLayout>
 
         </ScrollView>
 
+
         <RelativeLayout
             android:id="@+id/rlContainer"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="150dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
+
+            <Button
+                android:id="@+id/save_btn"
+                android:layout_width="200dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="210dp"
+                android:layout_marginEnd="3dp"
+                android:backgroundTint="@color/white"
+                android:text="Add More Images"
+                android:textColor="@color/blue" />
+
+            <Button
+                android:id="@+id/add_more_images_btn"
+                android:layout_width="200dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="3dp"
+                android:layout_marginEnd="12dp"
+                android:backgroundTint="@color/white"
+                android:text="Save Changes"
+                android:textColor="@color/blue" />
 
 
             <com.google.android.material.bottomnavigation.BottomNavigationView
                 android:id="@+id/bottom_navigation"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
+                android:layout_marginTop="40dp"
                 app:labelVisibilityMode="labeled"
                 app:menu="@menu/menu_items" />
 
