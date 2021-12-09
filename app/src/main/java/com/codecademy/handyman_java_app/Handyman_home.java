@@ -16,6 +16,8 @@ import android.text.style.AbsoluteSizeSpan;
 import android.text.style.StyleSpan;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -34,11 +36,11 @@ public class Handyman_home extends AppCompatActivity {
     //variables
     TextView firstname_used_for_signup, about, txtView;
     CheckBox homeCare, electricalServices, plumbingServices, pestControl, applianceServices, autoCare;
-    EditText about_me;
-    Button updateInfo, save_btn, add_more_images_btn;
-    String str, str2;
+    EditText about_me, textView2, textView3, editTextTextEmailAddress;;
+    Button updateInfo, save_btn, add_more_images_btn, saveChangesButton;
     Uri selectedImageUri;
-    LinearLayout ll, hll;
+    Animation slideUp, slideDown;
+    LinearLayout ll, hll, linearLayout;
     ImageButton IVPreviewImage, IVPreviewImage2, IVPreviewImage3;
     int SELECT_PICTURE = 200;
     boolean clicked = false;
@@ -54,10 +56,41 @@ public class Handyman_home extends AppCompatActivity {
         firstname_used_for_signup = findViewById(R.id.HandymanNameForHomeScreen);
         //getting the intent
         Intent intent1 = getIntent();
-        str = intent1.getStringExtra("fname");
-        str2 = intent1.getStringExtra("lname");
+        String str = intent1.getStringExtra("fname");
+        //get the last name of the user that was used during registration
+        String user_lname = intent1.getStringExtra("lname");
+        //get the email address of the user that was used during registration
+        String user_eaddress =  intent1.getStringExtra("eAddress");
         //displaying the string with welcome message
         firstname_used_for_signup.setText("Welcome, " + str + "!");
+
+        //settings page layout
+        linearLayout = findViewById(R.id.settings_linearLayout);
+
+        //getting the textView that will display the first name of user used during sign up
+        textView2 = findViewById(R.id.textView2);
+        //getting the textView that will display the last name of user used during sign up
+        textView3 = findViewById(R.id.textView3);
+        //getting the textView that will display the email of user used during sign up
+        editTextTextEmailAddress = findViewById(R.id.editTextTextEmailAddress);
+
+        //this will set the text of the textView in settings to the user's first name used for registration
+        textView2.setText(str);
+        //this will set the text of the textView in settings to the user's last name used for registration
+        textView3.setText(user_lname);
+        //this will set the text of the textView in settings to the user's email used for registration
+        editTextTextEmailAddress.setText(user_eaddress);
+
+        //this is the save changes button on the settings layout
+        saveChangesButton = findViewById(R.id.saveChangesButton);
+        saveChangesButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //upon clicking the button, the first name of the user is changed on the home screen in the welcome message, and a toast message is shown
+                firstname_used_for_signup.setText("Welcome, " + textView2.getText().toString() + "!");
+                Toast.makeText(getApplicationContext(), "Changes Saved!", Toast.LENGTH_LONG).show();
+            }
+        });
 
         //initializing all the variables by getting their id
         homeCare = findViewById(R.id.check_home_care);
@@ -201,16 +234,33 @@ public class Handyman_home extends AppCompatActivity {
                     //if the id is notification, we are taken to a page that displays their notifications
                     case R.id.notification:
 
-                        //if the id is settings, then the settings are displayed
-                    case R.id.settings:
-
-                        //if the id is chat, then the chatting screen is displayed
+                    //if the id is chat, then the chatting screen is displayed
                     case R.id.chat:
                         Toast.makeText(getApplicationContext(), "Stay tuned, feature coming soon!", Toast.LENGTH_SHORT).show();
                         return false;
 
+                    //if the id is settings, then the settings are displayed
+                    case R.id.settings:
+                        slideUp = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.layout_slide_up);
+                        slideDown = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.layout_slide_down);
+
+                        if(linearLayout.getVisibility() == View.INVISIBLE){
+
+                            linearLayout.startAnimation(slideUp);
+                            linearLayout.setVisibility(View.VISIBLE);
+                        }
+                        return true;
+
                     //if the id is home, then the home is displayed
                     case R.id.home:
+                        slideUp = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.layout_slide_up);
+                        slideDown = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.layout_slide_down);
+
+                        if(linearLayout.getVisibility() == View.VISIBLE){
+
+                            linearLayout.startAnimation(slideDown);
+                            linearLayout.setVisibility(View.INVISIBLE);
+                        }
                         return true;
 
                     default: return true;

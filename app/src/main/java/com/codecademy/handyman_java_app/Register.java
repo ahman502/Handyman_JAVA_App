@@ -92,16 +92,24 @@ public class Register extends AppCompatActivity {
 
     // function to display client home screen
     public void openClientHome() {
+
         //converts from first name EditTex data type to String data type
         String str = firstName.getText().toString();
+        //get the user's last name
         String user_lname = lastName.getText().toString();
+        //get the user's email address
         String user_eaddress =  email_address.getText().toString();
+
         //creating an intent to go to next screen
         Intent intent1 = new Intent(this, Client_home.class);
+
         //using the putExtra method (key, value) pair to get the name of the client
         intent1.putExtra("fname", str);
+        //take the last name to the next activity
         intent1.putExtra("lname", user_lname);
+        //take the email address to the next activity
         intent1.putExtra("eAddress", user_eaddress);
+
         //starting the activity (going to next screen)
         startActivity(intent1);
         finish();
@@ -109,14 +117,24 @@ public class Register extends AppCompatActivity {
 
     // function to display handyman home screen
     public void openHandymanHome() {
+
         //converts from first name EditTex data type to String data type
         String str = firstName.getText().toString();
-        String str2 = lastName.getText().toString();
+        //get the user's last name
+        String user_lname = lastName.getText().toString();
+        //get the user's email address
+        String user_eaddress =  email_address.getText().toString();
+
         //creating an intent to go to next screen
         Intent intent2 = new Intent(this, Handyman_home.class);
+
         //using the putExtra method (key, value) pair to get the name of the client
         intent2.putExtra("fname", str);
-        intent2.putExtra("lname", str2);
+        //take the last name to the next activity
+        intent2.putExtra("lname", user_lname);
+        //take the email address to the next activity
+        intent2.putExtra("eAddress", user_eaddress);
+
         //starting the activity (going to next screen)
         startActivity(intent2);
         finish();

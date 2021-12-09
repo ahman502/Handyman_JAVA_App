@@ -89,7 +89,6 @@ public class Client_home extends AppCompatActivity {
 
                     //if the id is chat, then the chatting screen is displayed
                     case R.id.chat:
-                        //bottomNavigationView.getMenu().setGroupCheckable(0, true, true);
                         Toast.makeText(getApplicationContext(), "Stay tuned, feature coming soon!", Toast.LENGTH_SHORT).show();
                         return false;
 
