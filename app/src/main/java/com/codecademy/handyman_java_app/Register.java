@@ -94,10 +94,14 @@ public class Register extends AppCompatActivity {
     public void openClientHome() {
         //converts from first name EditTex data type to String data type
         String str = firstName.getText().toString();
+        String user_lname = lastName.getText().toString();
+        String user_eaddress =  email_address.getText().toString();
         //creating an intent to go to next screen
         Intent intent1 = new Intent(this, Client_home.class);
         //using the putExtra method (key, value) pair to get the name of the client
         intent1.putExtra("fname", str);
+        intent1.putExtra("lname", user_lname);
+        intent1.putExtra("eAddress", user_eaddress);
         //starting the activity (going to next screen)
         startActivity(intent1);
         finish();

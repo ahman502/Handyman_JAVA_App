@@ -397,7 +397,7 @@
                 android:layout_gravity="center_horizontal"
                 android:backgroundTint="@color/white"
                 android:fontFamily="@font/nunito_light"
-                android:hint="User Current Password"
+                android:hint="Enter New Password"
                 android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textColorHint ="@color/white"
@@ -417,7 +417,7 @@
                 android:inputType="textPassword" />
 
             <Button
-                android:id="@+id/button"
+                android:id="@+id/saveChangesButton"
                 android:layout_width="210dp"
                 android:layout_height="42dp"
                 android:text="Save Changes"
