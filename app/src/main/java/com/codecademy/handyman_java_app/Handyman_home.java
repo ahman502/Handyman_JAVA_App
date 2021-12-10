@@ -147,13 +147,12 @@ public class Handyman_home extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                //this is temporary and for testing only, but if they check the Electric checkbox and click the Update button then they are taken to the Electricians list in Client's home
-                if(electricalServices.isChecked()){
-                    openElectricActivity();
-                }
                 //if the Plumbing checkbox is checked, and then the update button is clicked, the handyman is brought to their homescreen
                 if(plumbingServices.isChecked()){
                     openPlumbingActivity();
+                }
+                if(electricalServices.isChecked()){
+                    openElectricActivity();
                 }
                 //if no checkboxes are checked, a toast message is shown and update button doesn't work
                 else if(!homeCare.isChecked() && !electricalServices.isChecked() && !plumbingServices.isChecked()
@@ -172,7 +171,6 @@ public class Handyman_home extends AppCompatActivity {
         IVPreviewImage2 = findViewById(R.id.IVPreviewImage2);
         IVPreviewImage3 = findViewById(R.id.IVPreviewImage3);
         profileImage = findViewById(R.id.profileImage);
-
 
         //handle the Choose Image button to trigger the image chooser function
         IVPreviewImage.setOnClickListener(new View.OnClickListener() {
@@ -240,6 +238,10 @@ public class Handyman_home extends AppCompatActivity {
 
         //this is the navigation bar at the bottom of client's home screen to view items like
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+
+        slideUp = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.layout_slide_up);
+        slideDown = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.layout_slide_down);
+
         bottomNavigationView.setOnItemSelectedListener(new BottomNavigationView.OnItemSelectedListener() {
 
             //when a client selects one of the options of the navigation bar
@@ -258,8 +260,6 @@ public class Handyman_home extends AppCompatActivity {
 
                     //if the id is settings, then the settings are displayed
                     case R.id.settings:
-                        slideUp = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.layout_slide_up);
-                        slideDown = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.layout_slide_down);
 
                         if(linearLayout.getVisibility() == View.INVISIBLE){
 
@@ -270,8 +270,6 @@ public class Handyman_home extends AppCompatActivity {
 
                     //if the id is home, then the home is displayed
                     case R.id.home:
-                        slideUp = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.layout_slide_up);
-                        slideDown = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.layout_slide_down);
 
                         if(linearLayout.getVisibility() == View.VISIBLE){
 
@@ -366,110 +364,29 @@ public class Handyman_home extends AppCompatActivity {
                 }
             }
         }
-
-        //if the profile image - ImageButton is clicked, then we add an image to only that view
-        if(clicked4) {
-            if (resultCode == RESULT_OK) {
-                // compare the resultCode with the SELECT_PICTURE constant
-                if (requestCode == SELECT_PICTURE) {
-                    // Get the url of the image from data
-                    selectedImageUri = data.getData();
-                    if (null != selectedImageUri) {
-                        profileImage.setImageURI(selectedImageUri);
-                    }
-                }
-            }
-        }
-
-        //if the profile image - ImageButton is clicked, then we add an image to only that view
-        if(clicked4) {
-            if (resultCode == RESULT_OK) {
-                // compare the resultCode with the SELECT_PICTURE constant
-                if (requestCode == SELECT_PICTURE) {
-                    // Get the url of the image from data
-                    selectedImageUri = data.getData();
-                    if (null != selectedImageUri) {
-                        profileImage.setImageURI(selectedImageUri);
-                    }
-                }
-            }
-        }
-
-        //if the profile image - ImageButton is clicked, then we add an image to only that view
-        if(clicked4) {
-            if (resultCode == RESULT_OK) {
-                // compare the resultCode with the SELECT_PICTURE constant
-                if (requestCode == SELECT_PICTURE) {
-                    // Get the url of the image from data
-                    selectedImageUri = data.getData();
-                    if (null != selectedImageUri) {
-                        profileImage.setImageURI(selectedImageUri);
-                    }
-                }
-            }
-        }
-
-        //if the profile image - ImageButton is clicked, then we add an image to only that view
-        if(clicked4) {
-            if (resultCode == RESULT_OK) {
-                // compare the resultCode with the SELECT_PICTURE constant
-                if (requestCode == SELECT_PICTURE) {
-                    // Get the url of the image from data
-                    selectedImageUri = data.getData();
-                    if (null != selectedImageUri) {
-                        profileImage.setImageURI(selectedImageUri);
-                    }
-                }
-            }
-        }
-
-        //if the profile image - ImageButton is clicked, then we add an image to only that view
-        if(clicked4) {
-            if (resultCode == RESULT_OK) {
-                // compare the resultCode with the SELECT_PICTURE constant
-                if (requestCode == SELECT_PICTURE) {
-                    // Get the url of the image from data
-                    selectedImageUri = data.getData();
-                    if (null != selectedImageUri) {
-                        profileImage.setImageURI(selectedImageUri);
-                    }
-                }
-            }
-        }
-
-        //if the profile image - ImageButton is clicked, then we add an image to only that view
-        if(clicked4) {
-            if (resultCode == RESULT_OK) {
-                // compare the resultCode with the SELECT_PICTURE constant
-                if (requestCode == SELECT_PICTURE) {
-                    // Get the url of the image from data
-                    selectedImageUri = data.getData();
-                    if (null != selectedImageUri) {
-                        profileImage.setImageURI(selectedImageUri);
-                    }
-                }
-            }
-        }
-
     }
 
     //function to open and display a new activity
     public void openPlumbingActivity(){
-        //Intent intent6 = new Intent(Handyman_home.this, Plumbing_list.class);
-        //startActivity(intent6);
         ll.setVisibility(View.GONE);
         hll.setVisibility(View.VISIBLE);
     }
 
-    //function to open and display a new activity
-    public void openElectricActivity(){
-        //when this function is called, we will be navigated to the activity_main.xml file (MainActivity.java class)
-        //the code below is just used for testing
-        Intent intent7 = new Intent(Handyman_home.this, Electric_list.class);
-        intent7.putExtra("fname", str);
+    public void openElectricActivity() {
+
+        //creating an intent to go to next screen
+        Intent intent00 = new Intent(this, Client_home.class);
+
+        //using the putExtra method (key, value) pair to get the name of the client
+        intent00.putExtra("efname", str);
         //take the last name to the next activity
-        intent7.putExtra("lname", user_lname);
-        startActivity(intent7);
+        intent00.putExtra("elname", user_lname);
+        //take the email address to the next activity
+        intent00.putExtra("eeAddress", user_eaddress);
+
+        //starting the activity (going to next screen)
+        startActivity(intent00);
+        finish();
     }
 
     //when a checkbox is clicked on the Handyman screen, we display a toast message for which option was selected
@@ -499,6 +416,34 @@ public class Handyman_home extends AppCompatActivity {
         }
         Toast.makeText(getApplicationContext(), str, Toast.LENGTH_SHORT).show();
     }
+
+    /* ----- THIS COMMENTED OUT CODE IS TO ENABLE LOCATION SERVICE BUT IT DOES NOT WORK -----
+    public void statusCheck() {
+        final LocationManager manager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+
+        if (!manager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
+            buildAlertMessageNoGps();
+
+        }
+    }
+
+    private void buildAlertMessageNoGps() {
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("Your GPS seems to be disabled, do you want to enable it?")
+                .setCancelable(false)
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    public void onClick(final DialogInterface dialog, final int id) {
+                        startActivity(new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS));
+                    }
+                })
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    public void onClick(final DialogInterface dialog, final int id) {
+                        dialog.cancel();
+                    }
+                });
+        final AlertDialog alert = builder.create();
+        alert.show();
+    } */
 
 
 

@@ -124,7 +124,6 @@
         android:background="@drawable/circle_icons"
         android:minWidth="80dp"
         android:minHeight="80dp"
-        android:onClick="displayToastMsg"
         android:src="@drawable/electric"
         app:layout_constraintEnd_toEndOf="@+id/image_btn1"
         app:layout_constraintStart_toStartOf="@+id/image_btn1"
@@ -489,7 +488,6 @@
             <LinearLayout
                 android:layout_width="360dp"
                 android:layout_height="450dp"
-                android:background="@color/white"
                 android:minHeight="450dp"
                 android:orientation="vertical"
                 app:layout_constraintBottom_toTopOf="@+id/rlContainer"
@@ -501,20 +499,76 @@
                     android:id="@+id/txt_input"
                     android:layout_width="fill_parent"
                     android:layout_height="80dp"
-                    android:background="@color/teal_700"
-                    android:text="TextView"
-                    android:textColor="@color/white">
+                    android:layout_marginTop="10dp"
+                    android:paddingLeft="5dp"
+                    android:textSize="20dp"
+                    android:background="@color/white"
+                    android:text="Plumber 1 Information"
+                    android:textColor="@color/blue" >
 
                 </TextView>
 
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+
+    <!-- SHOW ELECTRICIAN'S LIST -->
+    <LinearLayout
+        android:id="@+id/show_eList_LinearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/blue"
+        android:orientation="vertical"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.473"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/electric_list"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:fontFamily="@font/nunito_light"
+            android:paddingTop="85dp"
+            android:text="Electricians"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="44sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="450dp"
+            android:layout_gravity="center_horizontal">
+
+            <LinearLayout
+                android:layout_width="360dp"
+                android:layout_height="450dp"
+                android:minHeight="450dp"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toTopOf="@+id/rlContainer"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/plumber_list">
+
                 <TextView
-                    android:id="@+id/p2"
+                    android:id="@+id/txt_input1"
                     android:layout_width="fill_parent"
                     android:layout_height="80dp"
                     android:layout_marginTop="10dp"
-                    android:background="@color/teal_700"
-                    android:text="TextView"
-                    android:textColor="@color/white">
+                    android:paddingLeft="5dp"
+                    android:textSize="20dp"
+                    android:background="@color/white"
+                    android:text="Electrician 1 Information"
+                    android:textColor="@color/blue" >
 
                 </TextView>
 

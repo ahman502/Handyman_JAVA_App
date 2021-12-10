@@ -3,7 +3,11 @@ package com.codecademy.handyman_java_app;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.location.LocationManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -22,10 +26,10 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class Client_home extends AppCompatActivity {
 
     //variables
-    TextView firstname_used_for_signup;
-    ImageButton plumbing_list;
+    TextView firstname_used_for_signup, txt_input, txt_input1;
+    ImageButton plumbing_list, electric_list;
     ImageButton profileImage;
-    LinearLayout linearLayout, show_pList_LinearLayout;
+    LinearLayout linearLayout, show_pList_LinearLayout, show_eList_LinearLayout;
     Animation slideUp, slideDown, right_to_left, left_to_right;
     Button saveChangesButton, logout_btn;
     BottomNavigationView bottomNavigationView;
@@ -54,6 +58,8 @@ public class Client_home extends AppCompatActivity {
         linearLayout = findViewById(R.id.settings_linearLayout);
         //plumbing page layout
         show_pList_LinearLayout = findViewById(R.id.show_pList_LinearLayout);
+        //electrician page layout
+        show_eList_LinearLayout = findViewById(R.id.show_eList_LinearLayout);
 
         //getting the textView that will display the first name of user used during sign up
         textView2 = findViewById(R.id.textView2);
@@ -90,13 +96,23 @@ public class Client_home extends AppCompatActivity {
             }
         });
 
+        txt_input = findViewById(R.id.txt_input);
+        txt_input1 = findViewById(R.id.txt_input1);
+
         //setting onClickListener on plumbing button to open a list of plumbers
         plumbing_list = findViewById(R.id.plumbing_btn);
-
         plumbing_list.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openPlumbingActivity();
+            }
+        });
+
+        electric_list =findViewById(R.id.electric_btn);
+        electric_list.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openElectricActivity();
             }
         });
 
@@ -132,24 +148,17 @@ public class Client_home extends AppCompatActivity {
                             linearLayout.startAnimation(slideUp);
                             linearLayout.setVisibility(View.VISIBLE);
                         }
-                        else if(show_pList_LinearLayout.getVisibility() == View.VISIBLE){
+                        if(show_pList_LinearLayout.getVisibility() == View.VISIBLE){
 
                             show_pList_LinearLayout.startAnimation(left_to_right);
                             show_pList_LinearLayout.setVisibility(View.INVISIBLE);
                             linearLayout.startAnimation(slideUp);
                             linearLayout.setVisibility(View.VISIBLE);
                         }
-                        else if(show_pList_LinearLayout.getVisibility() == View.VISIBLE){
+                        else if(show_eList_LinearLayout.getVisibility() == View.VISIBLE){
 
-                            show_pList_LinearLayout.startAnimation(left_to_right);
-                            show_pList_LinearLayout.setVisibility(View.INVISIBLE);
-                            linearLayout.startAnimation(slideUp);
-                            linearLayout.setVisibility(View.VISIBLE);
-                        }
-                        else if(show_pList_LinearLayout.getVisibility() == View.VISIBLE){
-
-                            show_pList_LinearLayout.startAnimation(left_to_right);
-                            show_pList_LinearLayout.setVisibility(View.INVISIBLE);
+                            show_eList_LinearLayout.startAnimation(left_to_right);
+                            show_eList_LinearLayout.setVisibility(View.INVISIBLE);
                             linearLayout.startAnimation(slideUp);
                             linearLayout.setVisibility(View.VISIBLE);
                         }
@@ -162,12 +171,16 @@ public class Client_home extends AppCompatActivity {
 
                             linearLayout.startAnimation(slideDown);
                             linearLayout.setVisibility(View.INVISIBLE);
-
                         }
                         else if(show_pList_LinearLayout.getVisibility() == View.VISIBLE){
 
                             show_pList_LinearLayout.startAnimation(left_to_right);
                             show_pList_LinearLayout.setVisibility(View.INVISIBLE);
+                        }
+                        else if(show_eList_LinearLayout.getVisibility() == View.VISIBLE){
+
+                            show_eList_LinearLayout.startAnimation(left_to_right);
+                            show_eList_LinearLayout.setVisibility(View.INVISIBLE);
                         }
                         return true;
 
@@ -186,10 +199,6 @@ public class Client_home extends AppCompatActivity {
             }
         });
 
-        //setting onClickListener on electric button to open a list of electricians
-        //electrician_list = findViewById(R.id.electric_btn);
-        //electrician_list.setOnClickListener(v -> openElectricActivity());
-
     }
 
     //function to open and display a new activity
@@ -198,15 +207,25 @@ public class Client_home extends AppCompatActivity {
         if(show_pList_LinearLayout.getVisibility() == View.INVISIBLE){
             show_pList_LinearLayout.startAnimation(right_to_left);
             show_pList_LinearLayout.setVisibility(View.VISIBLE);
+            txt_input.setText("Handyman name: \nEmail: ");
         }
     }
 
     //function to open and display a new activity
-    /*public void openElectricActivity(){
-        //when this function is called, we will be navigated to the activity_electric_list.xml file (Electric_list.java class)
-        Intent electric_list_activity = new Intent(this, Electric_list.class);
-        startActivity(electric_list_activity);
-    }*/
+    public void openElectricActivity(){
+        //when this function is called, we will be navigated to the plumber's list layout
+        if(show_eList_LinearLayout.getVisibility() == View.INVISIBLE){
+            show_eList_LinearLayout.startAnimation(right_to_left);
+            show_eList_LinearLayout.setVisibility(View.VISIBLE);
+            Intent intent00 = getIntent();
+            String str2 = intent00.getStringExtra("efname");
+            //get the last name of the user that was used during registration
+            String user_lname2 = intent00.getStringExtra("elname");
+            //get the email address of the user that was used during registration
+            String user_eaddress2 =  intent00.getStringExtra("eeAddress");
+            txt_input1.setText("Handyman name: " + str2 +" "+ user_lname2 +"\nEmail: " + user_eaddress2);
+        }
+    }
 
     public void toastMsg(String msg) {
         Toast toast = Toast.makeText(this, msg, Toast.LENGTH_LONG);
@@ -246,6 +265,34 @@ public class Client_home extends AppCompatActivity {
         }
 
     }
+
+    /* ----- THIS COMMENTED OUT CODE IS TO ENABLE LOCATION SERVICE BUT IT DOES NOT WORK -----
+    public void statusCheck() {
+        final LocationManager manager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+
+        if (!manager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
+            buildAlertMessageNoGps();
+
+        }
+    }
+
+    private void buildAlertMessageNoGps() {
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("Your GPS seems to be disabled, do you want to enable it?")
+                .setCancelable(false)
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    public void onClick(final DialogInterface dialog, final int id) {
+                        startActivity(new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS));
+                    }
+                })
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    public void onClick(final DialogInterface dialog, final int id) {
+                        dialog.cancel();
+                    }
+                });
+        final AlertDialog alert = builder.create();
+        alert.show();
+    } */
 
 
 }
