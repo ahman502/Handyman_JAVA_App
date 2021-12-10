@@ -20,9 +20,8 @@
 
     <TextView
         android:id="@+id/HandymanNameForHomeScreen"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="0dp"
         android:fontFamily="@font/nunito_light"
         android:text="TextView"
         android:textAlignment="center"
@@ -41,9 +40,8 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
-        android:layout_marginBottom="15dp"
         android:orientation="vertical"
-        android:visibility="gone"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.492"
@@ -173,7 +171,8 @@
             android:backgroundTint="@color/white"
             android:text="Update"
             android:textColor="@color/blue"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:layout_marginBottom="32dp"/>
     </LinearLayout>
 
 
@@ -182,6 +181,8 @@
         android:layout_width="match_parent"
         android:layout_height="600dp"
         android:orientation="vertical"
+        android:background="@color/blue"
+        android:layout_marginTop="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.492"
@@ -196,14 +197,13 @@
             android:layout_height="wrap_content"
             android:textAlignment="center"
             android:fontFamily="@font/nunito_light"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="8dp"
+            android:paddingLeft="15dp"
+            android:layout_marginBottom="5dp"
+            android:paddingRight="15dp"
+            android:layout_marginTop="10dp"
             android:text="Add Work Experience\nUpload before and after photos of your work below to share with nearby clients"
             android:textColor="@color/white"
-            android:textSize="16sp"
-            />
+            android:textSize="16sp" />
 
         <ScrollView
             android:layout_width="match_parent"
@@ -212,7 +212,7 @@
             <LinearLayout
                 android:id="@+id/images_layout"
                 android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
+                android:layout_height="wrap_content"
                 android:orientation="vertical">
 
                 <!-- first image upload button -->
@@ -450,6 +450,7 @@
                     android:id="@+id/profileImage"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
+                    android:scaleType="fitCenter"
                     android:layout_marginTop="5dp"
                     android:layout_gravity="center_horizontal"
                     android:background="@color/white"
@@ -526,7 +527,7 @@
                     android:layout_gravity="center_horizontal"
                     android:backgroundTint="@color/white"
                     android:textColor="@color/blue"
-                    android:layout_marginTop="15dp"
+                    android:layout_marginTop="25dp"
                     android:layout_marginBottom="30dp"/>
 
             </LinearLayout>

@@ -15,9 +15,6 @@
             android:name=".Electric_list"
             android:exported="true" />
         <activity
-            android:name=".Plumbing_list"
-            android:exported="true" />
-        <activity
             android:name=".Handyman_home"
             android:exported="true" />
         <activity

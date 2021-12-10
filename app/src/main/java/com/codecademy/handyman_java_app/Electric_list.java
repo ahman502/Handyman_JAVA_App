@@ -5,16 +5,31 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class Electric_list extends AppCompatActivity {
 
+    TextView txt_input, p2;
+    LinearLayout linearLayout;
+    Animation slideUp, slideDown;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_electric_list);
+
+        txt_input = findViewById(R.id.txt_input);
+        p2 = findViewById(R.id.p2);
+
+        //settings page layout
+        linearLayout = findViewById(R.id.settings_linearLayout);
 
         //this is the navigation bar at the bottom of client's home screen to view items like
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
@@ -31,18 +46,26 @@ public class Electric_list extends AppCompatActivity {
                     //if the id is notification, we are taken to a page that displays their notifications
                     case R.id.notification:
 
-                        //if the id is settings, then the settings are displayed
-                    case R.id.settings:
-
-                        //if the id is chat, then the chatting screen is displayed
+                    //if the id is chat, then the chatting screen is displayed
                     case R.id.chat:
                         Toast.makeText(getApplicationContext(), "Stay tuned, feature coming soon!", Toast.LENGTH_SHORT).show();
+                        return false;
+
+                    //if the id is settings, then the settings are displayed
+                    case R.id.settings:
+                        slideUp = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.layout_slide_up);
+                        slideDown = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.layout_slide_down);
+
+                        if(linearLayout.getVisibility() == View.INVISIBLE){
+
+                            linearLayout.startAnimation(slideUp);
+                            linearLayout.setVisibility(View.VISIBLE);
+                        }
                         return true;
 
                     //if the id is home, then the home is displayed
                     case R.id.home:
-                        /* when we click home button again, we are taken back to the client's home
-                        screen where their name is shown which they used for registration */
+
                         finish();
                         return true;
 
