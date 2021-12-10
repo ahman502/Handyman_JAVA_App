@@ -12,7 +12,6 @@ import android.text.Editable;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.TextWatcher;
-import android.text.style.AbsoluteSizeSpan;
 import android.text.style.StyleSpan;
 import android.view.MenuItem;
 import android.view.View;
@@ -22,7 +21,6 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -36,8 +34,8 @@ public class Handyman_home extends AppCompatActivity {
     //variables
     TextView firstname_used_for_signup, about, txtView;
     CheckBox homeCare, electricalServices, plumbingServices, pestControl, applianceServices, autoCare;
-    EditText about_me, textView2, textView3, editTextTextEmailAddress;;
-    Button updateInfo, save_btn, add_more_images_btn, saveChangesButton;
+    EditText about_me, textView2, textView3, editTextTextEmailAddress;
+    Button updateInfo, save_btn, add_more_images_btn, saveChangesButton, logout_btn;
     Uri selectedImageUri;
     Animation slideUp, slideDown;
     String str, user_lname, user_eaddress;
@@ -284,6 +282,16 @@ public class Handyman_home extends AppCompatActivity {
 
                     default: return true;
                 }
+            }
+        });
+
+        logout_btn = findViewById(R.id.logout_btn);
+        logout_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent logout = new Intent(Handyman_home.this, MainActivity.class);
+                startActivity(logout);
+                finish();
             }
         });
     }

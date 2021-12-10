@@ -18,6 +18,22 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_launcher_foreground" />
 
+    <Button
+        android:id="@+id/logout_btn"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:background="@null"
+        android:backgroundTint="@null"
+        android:text="Log Out"
+        app:layout_constraintBottom_toTopOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.948"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </Button>
+
     <TextView
         android:id="@+id/HandymanNameForHomeScreen"
         android:layout_width="match_parent"

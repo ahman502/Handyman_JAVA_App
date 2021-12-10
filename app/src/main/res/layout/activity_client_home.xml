@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/blue"
+    android:backgroundTint="@color/blue"
     tools:context=".Client_home">
 
     <!-- SHOW HOME LAYOUT -->
@@ -17,6 +18,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_launcher_foreground" />
+
+    <Button
+        android:id="@+id/logout_btn"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:background="@null"
+        android:backgroundTint="@null"
+        android:text="Log Out"
+        app:layout_constraintBottom_toTopOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.948"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </Button>
 
     <TextView
         android:id="@+id/clientName"
@@ -63,12 +79,12 @@
 
     <ImageButton
         android:id="@+id/home_care_btn"
-        android:onClick="displayToastMsg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/circle_icons"
         android:minWidth="80dp"
         android:minHeight="80dp"
+        android:onClick="displayToastMsg"
         android:src="@drawable/home_care"
         app:layout_constraintEnd_toEndOf="@+id/image_btn"
         app:layout_constraintStart_toStartOf="@+id/image_btn"
@@ -184,12 +200,12 @@
 
     <ImageButton
         android:id="@+id/pest_control_btn"
-        android:onClick="displayToastMsg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/circle_icons"
         android:minWidth="80dp"
         android:minHeight="80dp"
+        android:onClick="displayToastMsg"
         android:src="@drawable/pest_control"
         app:layout_constraintEnd_toEndOf="@+id/image_btn3"
         app:layout_constraintStart_toStartOf="@+id/image_btn3"
@@ -224,12 +240,12 @@
 
     <ImageButton
         android:id="@+id/appliances_btn"
-        android:onClick="displayToastMsg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/circle_icons"
         android:minWidth="80dp"
         android:minHeight="80dp"
+        android:onClick="displayToastMsg"
         android:src="@drawable/appliances"
         app:layout_constraintEnd_toEndOf="@+id/image_btn4"
         app:layout_constraintStart_toStartOf="@+id/image_btn4"
@@ -264,12 +280,12 @@
 
     <ImageButton
         android:id="@+id/auto_care_btn"
-        android:onClick="displayToastMsg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/circle_icons"
         android:minWidth="80dp"
         android:minHeight="80dp"
+        android:onClick="displayToastMsg"
         android:src="@drawable/auto_care"
         app:layout_constraintEnd_toEndOf="@+id/image_btn5"
         app:layout_constraintStart_toStartOf="@+id/image_btn5"
@@ -296,13 +312,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginBottom="60dp"
+        android:background="@color/blue"
         android:orientation="vertical"
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.473"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:background="@color/blue">
+        app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:id="@+id/imageView1"
@@ -329,16 +345,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/nunito_light"
-            android:textAlignment="center"
             android:text="Update your settings and personal information below"
+            android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="14sp" />
 
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="420dp"
-            android:minHeight="420dp"
-            android:layout_marginTop="10dp">
+            android:layout_marginTop="10dp"
+            android:minHeight="420dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -346,92 +362,92 @@
                 android:minHeight="420dp"
                 android:orientation="vertical">
 
-            <ImageButton
-                android:id="@+id/profileImage"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:scaleType="fitCenter"
-                android:layout_marginTop="5dp"
-                android:layout_gravity="center_horizontal"
-                android:background="@color/white"
-                app:srcCompat="@drawable/add" />
+                <ImageButton
+                    android:id="@+id/profileImage"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/white"
+                    android:scaleType="fitCenter"
+                    app:srcCompat="@drawable/add" />
 
 
-            <EditText
-                android:id="@+id/textView2"
-                android:layout_width="270dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="20dp"
-                android:backgroundTint="@color/white"
-                android:fontFamily="@font/nunito_light"
-                android:text="User First Name"
-                android:textAlignment="center"
-                android:textColor="@color/white" />
+                <EditText
+                    android:id="@+id/textView2"
+                    android:layout_width="270dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="20dp"
+                    android:backgroundTint="@color/white"
+                    android:fontFamily="@font/nunito_light"
+                    android:text="User First Name"
+                    android:textAlignment="center"
+                    android:textColor="@color/white" />
 
-            <EditText
-                android:id="@+id/textView3"
-                android:layout_width="270dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:backgroundTint="@color/white"
-                android:fontFamily="@font/nunito_light"
-                android:text="User Last Name"
-                android:textAlignment="center"
-                android:textColor="@color/white" />
+                <EditText
+                    android:id="@+id/textView3"
+                    android:layout_width="270dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:backgroundTint="@color/white"
+                    android:fontFamily="@font/nunito_light"
+                    android:text="User Last Name"
+                    android:textAlignment="center"
+                    android:textColor="@color/white" />
 
-            <EditText
-                android:id="@+id/editTextTextEmailAddress"
-                android:layout_width="270dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:backgroundTint="@color/white"
-                android:fontFamily="@font/nunito_light"
-                android:text="User Email Address"
-                android:textAlignment="center"
-                android:textColor="@color/white"
-                android:ems="10"
-                android:inputType="textEmailAddress" />
+                <EditText
+                    android:id="@+id/editTextTextEmailAddress"
+                    android:layout_width="270dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:backgroundTint="@color/white"
+                    android:ems="10"
+                    android:fontFamily="@font/nunito_light"
+                    android:inputType="textEmailAddress"
+                    android:text="User Email Address"
+                    android:textAlignment="center"
+                    android:textColor="@color/white" />
 
-            <EditText
-                android:id="@+id/editTextTextPassword"
-                android:layout_width="270dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:backgroundTint="@color/white"
-                android:fontFamily="@font/nunito_light"
-                android:hint="Enter New Password"
-                android:textAlignment="center"
-                android:textColor="@color/white"
-                android:textColorHint ="@color/white"
-                android:inputType="textPassword" />
+                <EditText
+                    android:id="@+id/editTextTextPassword"
+                    android:layout_width="270dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:backgroundTint="@color/white"
+                    android:fontFamily="@font/nunito_light"
+                    android:hint="Enter New Password"
+                    android:inputType="textPassword"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white" />
 
-            <EditText
-                android:id="@+id/confirmNewPassword"
-                android:layout_width="270dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:backgroundTint="@color/white"
-                android:fontFamily="@font/nunito_light"
-                android:hint="Confirm New Password"
-                android:textAlignment="center"
-                android:textColor="@color/white"
-                android:textColorHint ="@color/white"
-                android:inputType="textPassword" />
+                <EditText
+                    android:id="@+id/confirmNewPassword"
+                    android:layout_width="270dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:backgroundTint="@color/white"
+                    android:fontFamily="@font/nunito_light"
+                    android:hint="Confirm New Password"
+                    android:inputType="textPassword"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white" />
 
-            <Button
-                android:id="@+id/saveChangesButton"
-                android:layout_width="210dp"
-                android:layout_height="42dp"
-                android:text="Save Changes"
-                android:layout_gravity="center_horizontal"
-                android:backgroundTint="@color/white"
-                android:textColor="@color/blue"
-                android:layout_marginTop="15dp"/>
+                <Button
+                    android:id="@+id/saveChangesButton"
+                    android:layout_width="210dp"
+                    android:layout_height="42dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="15dp"
+                    android:backgroundTint="@color/white"
+                    android:text="Save Changes"
+                    android:textColor="@color/blue" />
 
             </LinearLayout>
 
-    </ScrollView>
+        </ScrollView>
 
 
     </LinearLayout>

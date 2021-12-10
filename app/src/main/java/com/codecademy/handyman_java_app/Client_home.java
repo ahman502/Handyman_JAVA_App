@@ -27,7 +27,7 @@ public class Client_home extends AppCompatActivity {
     ImageButton profileImage;
     LinearLayout linearLayout, show_pList_LinearLayout;
     Animation slideUp, slideDown, right_to_left, left_to_right;
-    Button saveChangesButton;
+    Button saveChangesButton, logout_btn;
     BottomNavigationView bottomNavigationView;
     EditText textView2, textView3, editTextTextEmailAddress;
     int SELECT_PICTURE = 200;
@@ -173,6 +173,16 @@ public class Client_home extends AppCompatActivity {
 
                     default: return true;
                 }
+            }
+        });
+
+        logout_btn = findViewById(R.id.logout_btn);
+        logout_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent logout = new Intent(Client_home.this, MainActivity.class);
+                startActivity(logout);
+                finish();
             }
         });
 
