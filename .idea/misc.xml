@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/add.xml" value="0.2984375" />
         <entry key="app/src/main/res/drawable/appliances.xml" value="0.2984375" />
         <entry key="app/src/main/res/drawable/auto_care.xml" value="0.2984375" />
         <entry key="app/src/main/res/drawable/circle_icons.xml" value="0.2984375" />
@@ -15,11 +16,11 @@
         <entry key="app/src/main/res/drawable/user_chat_icon.xml" value="0.2984375" />
         <entry key="app/src/main/res/drawable/user_notifications_icon.xml" value="0.2984375" />
         <entry key="app/src/main/res/drawable/user_settings_icon.xml" value="0.2984375" />
-        <entry key="app/src/main/res/layout/activity_client_home.xml" value="0.375" />
+        <entry key="app/src/main/res/layout/activity_client_home.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_electric_list.xml" value="0.2682291666666667" />
-        <entry key="app/src/main/res/layout/activity_handyman_home.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/activity_handyman_home.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/activity_plumbing_list.xml" value="0.28229166666666666" />
+        <entry key="app/src/main/res/layout/activity_plumbing_list.xml" value="0.19850187265917604" />
         <entry key="app/src/main/res/layout/activity_register.xml" value="0.335" />
         <entry key="app/src/main/res/layout/gridview_format.xml" value="0.28229166666666666" />
         <entry key="app/src/main/res/layout/gridview_images_format.xml" value="0.28229166666666666" />
